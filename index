@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>May & Boy — Wedding Invitation</title>
+
+  <!-- Fonts (serif for names + clean sans for body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #FFFFFF;          /* Pure White */
+      --ink: #1F1F1F;         /* soft black */
+      --muted: #6B6B6B;
+      --line: rgba(31,31,31,.10);
+
+      /* Soft Peach (Oros) */
+      --peach: #F7D8CF;
+      --peach-2:#FBE8E2;
+      --peach-ink:#B46E63;
+
+      --card: rgba(255,255,255,.86);
+      --shadow: 0 18px 48px rgba(0,0,0,.06);
+      --radius: 22px;
+
+      --serif: "Cormorant Garamond", serif;
+      --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(900px 420px at 80% -10%, var(--peach-2), transparent 60%),
+        radial-gradient(700px 360px at 10% 20%, rgba(247,216,207,.35), transparent 65%),
+        var(--bg);
+      letter-spacing:.1px;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:22px}
+    .topbar{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:10px 0 0;
+    }
+    .badge{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--peach-ink);
+      background:linear-gradient(180deg, rgba(247,216,207,.55), rgba(247,216,207,.22));
+      border:1px solid rgba(180,110,99,.18);
+      padding:8px 12px;border-radius:999px;
+      backdrop-filter: blur(6px);
+    }
+    .nav{
+      display:flex;gap:14px;flex-wrap:wrap;
+      font-size:13px;color:rgba(31,31,31,.72);
+    }
+    .nav a{ text-decoration:none; padding:8px 10px; border-radius:999px; }
+    .nav a:hover{ background:rgba(247,216,207,.25); }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(700px 380px at 15% 0%, rgba(247,216,207,.55), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:26px;
+      padding:34px 34px 30px;
+      align-items:center;
+    }
+    .names{
+      font-family:var(--serif);
+      font-weight:600;
+      font-size: clamp(40px, 5vw, 64px);
+      letter-spacing:.02em;
+      margin:0;
+      line-height:1.05;
+    }
+    .sub{
+      margin:14px 0 0;
+      color:rgba(31,31,31,.72);
+      font-size:15px;
+      line-height:1.7;
+      max-width:58ch;
+    }
+    .hero-meta{
+      margin-top:18px;
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      border-radius:999px;
+      padding:10px 12px;
+      font-size:13px;
+      color:rgba(31,31,31,.8);
+      display:flex;gap:8px;align-items:center;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--peach);
+      border:1px solid rgba(180,110,99,.25);
+    }
+    .cta-row{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{
+      appearance:none;border:1px solid var(--line);
+      padding:12px 14px;border-radius:999px;
+      background: rgba(255,255,255,.85);
+      color:rgba(31,31,31,.88);
+      font-size:14px;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;gap:10px;align-items:center;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(247,216,207,.30); }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(247,216,207,.9), rgba(247,216,207,.55));
+      border-color: rgba(180,110,99,.18);
+      color: rgba(88,40,34,.95);
+    }
+
+    /* Airy photo placeholder */
+    .photo-card{
+      position:relative;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(247,216,207,.35), rgba(255,255,255,.9)),
+        repeating-linear-gradient(0deg, rgba(31,31,31,.05), rgba(31,31,31,.05) 1px, transparent 1px, transparent 10px);
+      aspect-ratio: 4 / 5;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+    }
+    .photo-label{
+      width:100%;
+      padding:12px 14px;
+      font-size:12px;
+      color:rgba(31,31,31,.70);
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.92));
+      border-top:1px solid rgba(31,31,31,.06);
+    }
+    .photo-card::before{
+      content:"";
+      position:absolute;inset:-40px -40px auto auto;
+      width:220px;height:220px;border-radius:50%;
+      background: radial-gradient(circle, rgba(247,216,207,.75), transparent 70%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+
+    /* Section layout */
+    section{
+      margin-top:18px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 30px rgba(0,0,0,.04);
+      overflow:hidden;
+    }
+    .section-inner{ padding:26px; position:relative; }
+    .kicker{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--peach-ink);
+      margin:0 0 10px;
+    }
+    h2{
+      font-family:var(--serif);
+      font-weight:600;
+      font-size: clamp(24px, 3.4vw, 32px);
+      margin:0 0 10px;
+      letter-spacing:.01em;
+    }
+    .lead{
+      margin:0;
+      color:rgba(31,31,31,.72);
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: rgba(255,255,255,.80);
+      padding:18px;
+    }
+    .label{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(31,31,31,.55);
+      margin:0 0 6px;
+    }
+    .value{
+      margin:0;
+      font-size:15px;
+      line-height:1.7;
+      color:rgba(31,31,31,.88);
+    }
+    .value strong{
+      font-family:var(--serif);
+      font-weight:600;
+      font-size:18px;
+    }
+
+    /* Map placeholder */
+    .map{
+      border-radius:18px;
+      border:1px dashed rgba(31,31,31,.18);
+      background:
+        linear-gradient(135deg, rgba(247,216,207,.28), rgba(255,255,255,.92));
+      aspect-ratio: 16 / 9;
+      position:relative;
+      overflow:hidden;
+    }
+    .map::after{
+      content:"Map Placeholder";
+      position:absolute;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      font-size:13px;color:rgba(31,31,31,.60);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .map-pin{
+      position:absolute;
+      left:50%;top:50%;
+      transform: translate(-50%, -60%);
+      width:18px;height:18px;border-radius:50%;
+      background: var(--peach);
+      border:1px solid rgba(180,110,99,.25);
+      box-shadow: 0 10px 24px rgba(0,0,0,.10);
+    }
+    .map-pin::after{
+      content:"";
+      position:absolute;
+      left:50%;top:100%;
+      transform: translateX(-50%);
+      width:0;height:0;
+      border-left:7px solid transparent;
+      border-right:7px solid transparent;
+      border-top:10px solid rgba(247,216,207,.95);
+      filter: drop-shadow(0 2px 1px rgba(0,0,0,.08));
+    }
+
+    /* RSVP form */
+    form{ margin-top:12px; }
+    .row{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    .field{ display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+    input, select, textarea{
+      font-family:var(--sans);
+      font-size:14px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(31,31,31,.14);
+      background: rgba(255,255,255,.92);
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(180,110,99,.40);
+      box-shadow: 0 0 0 5px rgba(247,216,207,.30);
+    }
+    textarea{ resize:vertical; min-height:92px; }
+    .hint{ font-size:12px; color:rgba(31,31,31,.58); line-height:1.6; margin:8px 0 0; }
+    .submit{
+      margin-top:14px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+
+    /* Decorative line art */
+    .art{
+      position:absolute;
+      pointer-events:none;
+      opacity:.55;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.04));
+    }
+    .art.flower-1{ right:-40px; top:-30px; width:220px; }
+    .art.flower-2{ left:-46px; bottom:-56px; width:240px; opacity:.38; }
+    .art.couple{
+      position:static;
+      width:180px;
+      margin-left:auto;
+      opacity:.7;
+    }
+
+    footer{
+      text-align:center;
+      padding:26px 8px 36px;
+      color:rgba(31,31,31,.55);
+      font-size:13px;
+      line-height:1.8;
+    }
+    .divider{
+      height:1px;background:var(--line);
+      margin:18px 0 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      .photo-card{ aspect-ratio: 16 / 10; }
+      .art.couple{ margin: 6px 0 0; }
+    }
+    @media (max-width: 620px){
+      .wrap{ padding:16px; }
+      .section-inner{ padding:20px; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .row{ grid-template-columns: 1fr; }
+      .nav{ display:none; } /* simple & clean on mobile */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="badge">Wedding Invitation</div>
+      <nav class="nav" aria-label="Section navigation">
+        <a href="#welcome">Welcome</a>
+        <a href="#details">Details</a>
+        <a href="#venue">Venue</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <h1 class="names">May <span style="color:rgba(31,31,31,.55);font-weight:400;">&</span> Boy</h1>
+          <p class="sub">
+            With hearts full of gratitude, we invite you to join us as we begin our next chapter—surrounded by love, laughter, and the people who mean the most.
+          </p>
+
+          <div class="hero-meta" aria-label="Quick details">
+            <div class="pill"><span class="dot"></span> <span><strong>Date:</strong> 2027 • (Your Day)</span></div>
+            <div class="pill"><span class="dot"></span> <span><strong>Time:</strong> 18:00</span></div>
+            <div class="pill"><span class="dot"></span> <span><strong>Dress Code:</strong> Soft Neutrals</span></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#rsvp">RSVP Now</a>
+            <a class="btn" href="#venue">View Venue</a>
+          </div>
+
+          <div class="divider"></div>
+
+          <p class="hint">
+            Minimalist Korean-style • Pure White + Soft Peach • One-page mobile invitation
+          </p>
+        </div>
+
+        <div>
+          <!-- Airy photo placeholder: replace with your photo -->
+          <div class="photo-card" role="img" aria-label="Soft airy couple photo placeholder">
+            <div class="photo-label">
+              Replace with a bright, airy photo (e.g., beach / garden / studio with soft daylight)
+            </div>
+          </div>
+
+          <!-- Simple couple line art (inline SVG) -->
+          <svg class="art couple" viewBox="0 0 220 220" aria-hidden="true">
+            <path d="M58 164c8-26 18-45 34-58" fill="none" stroke="rgba(180,110,99,.65)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M92 106c10-10 22-15 36-14" fill="none" stroke="rgba(180,110,99,.65)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M128 92c16 2 28 10 36 24" fill="none" stroke="rgba(180,110,99,.65)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M70 92c0-18 10-32 24-32s24 14 24 32" fill="none" stroke="rgba(31,31,31,.28)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M122 104c0-18 10-32 24-32s24 14 24 32" fill="none" stroke="rgba(31,31,31,.28)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M84 128c6 18 18 30 34 30 18 0 30-12 34-30" fill="none" stroke="rgba(31,31,31,.22)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M62 170c26 6 70 6 96 0" fill="none" stroke="rgba(31,31,31,.18)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- WELCOME -->
+    <section id="welcome">
+      <div class="section-inner">
+        <!-- Floral line art (top-right) -->
+        <svg class="art flower-1" viewBox="0 0 240 240" aria-hidden="true">
+          <g fill="none" stroke="rgba(180,110,99,.35)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M164 44c-12 26-22 46-30 60"/>
+            <path d="M132 104c-6 18-10 34-12 48"/>
+            <path d="M140 60c16 6 28 16 36 30"/>
+            <path d="M124 82c-18 2-34 10-48 24"/>
+            <path d="M110 116c-20 6-34 18-44 36"/>
+            <path d="M174 92c18 2 32 10 44 24"/>
+            <path d="M186 66c8-10 16-18 24-24"/>
+            <path d="M106 60c-8-10-16-18-24-24"/>
+            <path d="M122 70c10 10 18 18 24 24"/>
+            <path d="M152 82c-10 10-18 18-24 24"/>
+            <path d="M96 140c12-2 22 2 30 12"/>
+            <path d="M168 132c-12-2-22 2-30 12"/>
+            <path d="M120 150c10 8 20 8 30 0"/>
+          </g>
+        </svg>
+
+        <p class="kicker">Welcome</p>
+        <h2>A warm invitation, from us to you</h2>
+        <p class="lead">
+          We’re grateful for every moment, every lesson, and every person who has walked alongside us.
+          Please join us as we celebrate our marriage and share an evening of love, joy, and togetherness.
+        </p>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section id="details">
+      <div class="section-inner">
+        <p class="kicker">Wedding Details</p>
+        <h2>Date & Time</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <p class="label">Ceremony</p>
+            <p class="value"><strong>2027</strong><br/>18:00 (Please arrive 30 minutes early)</p>
+          </div>
+          <div class="card">
+            <p class="label">Reception</p>
+            <p class="value"><strong>Immediately after</strong><br/>Dinner • Toasts • Warm moments</p>
+          </div>
+        </div>
+
+        <p class="hint">Tip: Replace “2027” and time with your exact date/time once confirmed.</p>
+      </div>
+    </section>
+
+    <!-- VENUE -->
+    <section id="venue">
+      <div class="section-inner">
+        <!-- Floral line art (bottom-left) -->
+        <svg class="art flower-2" viewBox="0 0 260 260" aria-hidden="true">
+          <g fill="none" stroke="rgba(180,110,99,.28)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M64 206c26-22 46-42 60-60"/>
+            <path d="M124 146c14-18 26-38 36-60"/>
+            <path d="M150 170c-10-12-12-26-6-40"/>
+            <path d="M92 164c12 4 22 12 30 24"/>
+            <path d="M166 132c14-4 28 0 40 12"/>
+            <path d="M96 120c-10-10-18-22-24-36"/>
+            <path d="M184 108c10-10 22-18 36-24"/>
+            <path d="M128 108c-8 10-18 18-30 24"/>
+            <path d="M144 128c10 8 20 8 30 0"/>
+          </g>
+        </svg>
+
+        <p class="kicker">Venue</p>
+        <h2>Location</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <p class="label">Venue Name</p>
+            <p class="value"><strong>Your Venue</strong><br/>Full address line 1<br/>City, Country</p>
+            <p class="hint">Add parking info, BTS/MRT notes, or a short landmark description here.</p>
+          </div>
+
+          <div class="card">
+            <p class="label">Map</p>
+            <div class="map" aria-label="Map placeholder">
+              <div class="map-pin" aria-hidden="true"></div>
+            </div>
+            <p class="hint">Replace this with an embedded Google Map iframe or a static map image.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+      <div class="section-inner">
+        <p class="kicker">Digital RSVP</p>
+        <h2>Kindly respond</h2>
+        <p class="lead">
+          Your presence means the world to us. Please let us know if you can join, so we can welcome you warmly.
+        </p>
+
+        <form onsubmit="event.preventDefault(); alert('Thank you! Your RSVP has been recorded (demo).');">
+          <div class="row">
+            <div class="field">
+              <label class="label" for="name">Full Name</label>
+              <input id="name" name="name" placeholder="e.g., Artid Aug" required />
+            </div>
+            <div class="field">
+              <label class="label" for="phone">Phone / Line ID</label>
+              <input id="phone" name="phone" placeholder="e.g., 08x-xxx-xxxx" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="label" for="attend">Attendance</label>
+              <select id="attend" name="attend" required>
+                <option value="" selected disabled>Select</option>
+                <option value="yes">Joyfully accept</option>
+                <option value="no">Regretfully decline</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="guests">Number of Guests</label>
+              <select id="guests" name="guests">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="note">Message / Dietary Notes</label>
+            <textarea id="note" name="note" placeholder="A short note for the couple (optional)"></textarea>
+          </div>
+
+          <div class="submit">
+            <button class="btn primary" type="submit">Submit RSVP</button>
+            <a class="btn" href="#top">Back to Top</a>
+          </div>
+
+          <p class="hint">
+            To connect this form: set the form action to your endpoint (Google Forms, Sheet, or your API) and remove the demo onsubmit handler.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div style="font-family:var(--serif);font-size:18px;color:rgba(31,31,31,.72);">
+        With love, May & Boy
+      </div>
+      <div style="margin-top:8px;">
+        A soft, warm celebration in 2027 • Minimal • Airy • Heartfelt
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
