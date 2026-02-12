@@ -541,6 +541,77 @@
       .book-head{ padding:18px 20px 0; }
       .book-scroll{ padding: 12px 12px 18px; }
     }
+  
+    /* ===================== GALLERY CONTROLS ===================== */
+    .gallery-controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      padding: 10px 14px 0;
+      flex-wrap:wrap;
+    }
+    .gbtn{
+      appearance:none;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.82);
+      color:rgba(31,31,31,.86);
+      font-size:13px;
+      cursor:pointer;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .gbtn:hover{ transform: translateY(-1px); background: rgba(247,216,207,.28); }
+    .gbtn.primary{
+      background: linear-gradient(180deg, rgba(247,216,207,.92), rgba(247,216,207,.58));
+      border-color: rgba(180,110,99,.18);
+      color: rgba(88,40,34,.95);
+    }
+    .gstatus{
+      font-size:12px;
+      color: rgba(31,31,31,.58);
+      letter-spacing:.06em;
+      padding: 0 6px;
+      user-select:none;
+    }
+
+  
+    
+    /* ===================== AUTOPLAY SLIDER (3 PER VIEW) ===================== */
+    .slides{
+      display:flex;
+      width:100%;
+      will-change: transform;
+      transition: transform .6s ease;
+    }
+    .slide{
+      flex: 0 0 33.3333%;
+      padding:10px;
+      box-sizing:border-box;
+    }
+    .slide-photo{
+      border-radius: 14px;
+      overflow:hidden;
+      border:1px solid rgba(31,31,31,.12);
+      background:#fff;
+      aspect-ratio:1/1;
+      cursor:pointer;
+    }
+    .slide-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .2s ease;
+    }
+    .slide-photo:hover img{transform:scale(1.05);}
+
+    }
+
   </style>
 </head>
 
@@ -610,79 +681,60 @@
       </div>
     </header>
 
-    <!-- BOOK GALLERY (Story order) -->
-    <section class="book-shell" id="gallery">
+    <!-- GALLERY (Autoplay Slider) -->
+    <section class="slider-shell" id="gallery">
       <div class="book-head">
         <p class="kicker">Gallery</p>
-        <h2>Our photo book</h2>
-        <p class="lead">Swipe like turning pages — tap a photo to view in a clear glass lightbox.</p>
+        <h2>Our story</h2>
+        <p class="lead">Auto-sliding moments — tap a photo to view in a clear glass lightbox.</p>
       </div>
 
-      <div class="book-scroll" aria-label="Book gallery">
+      <div class="slider" aria-label="Autoplay gallery slider">
+        <div class="slides" id="slides">
+          <figure class="slide">
+            <div class="slide-photo" data-full="images/01_childhood.jpg">
+              <img src="images/01_childhood.jpg" alt="Childhood" loading="lazy">
+            </div>
+            <figcaption class="slide-cap">Chapter 1 — Childhood friends</figcaption>
+          </figure>
 
-        <!-- Spread 1: Childhood -->
-        <article class="book-spread">
-          <div class="book">
-            <div class="page left">
-              <div class="book-photo p1" data-full="images/01_childhood.jpg">
-                <img src="images/01_childhood.jpg" alt="Childhood">
-              </div>
+          <figure class="slide">
+            <div class="slide-photo" data-full="images/02_school_walk.jpg">
+              <img src="images/02_school_walk.jpg" alt="School days" loading="lazy">
             </div>
-            <div class="page right">
-              <div class="book-photo p2" data-full="images/02_school_walk.jpg">
-                <img src="images/02_school_walk.jpg" alt="School days">
-              </div>
-            </div>
-            <div class="spine" aria-hidden="true"></div>
-            <div class="book-dots" aria-hidden="true">
-              <span class="book-dot a"></span><span class="book-dot b"></span><span class="book-dot c"></span><span class="book-dot d"></span>
-            </div>
-          </div>
-          <div class="book-caption">Chapter 1 — Childhood friends • School days</div>
-        </article>
+            <figcaption class="slide-cap">Chapter 1 — School days</figcaption>
+          </figure>
 
-        <!-- Spread 2: Time passes -->
-        <article class="book-spread">
-          <div class="book">
-            <div class="page left">
-              <div class="book-photo p1" data-full="images/03_time_pass.jpg">
-                <img src="images/03_time_pass.jpg" alt="Time passes">
-              </div>
+          <figure class="slide">
+            <div class="slide-photo" data-full="images/03_time_pass.jpg">
+              <img src="images/03_time_pass.jpg" alt="Time passes" loading="lazy">
             </div>
-            <div class="page right">
-              <div class="book-photo p2" data-full="images/04_reunion.jpg">
-                <img src="images/04_reunion.jpg" alt="Reunited">
-              </div>
-            </div>
-            <div class="spine" aria-hidden="true"></div>
-            <div class="book-dots" aria-hidden="true">
-              <span class="book-dot a"></span><span class="book-dot b"></span><span class="book-dot c"></span><span class="book-dot d"></span>
-            </div>
-          </div>
-          <div class="book-caption">Chapter 2 — Time flies • We meet again</div>
-        </article>
+            <figcaption class="slide-cap">Chapter 2 — Time flies</figcaption>
+          </figure>
 
-        <!-- Spread 3: Love grows -->
-        <article class="book-spread">
-          <div class="book">
-            <div class="page left">
-              <div class="book-photo p1" data-full="images/05_talking.jpg">
-                <img src="images/05_talking.jpg" alt="Getting closer">
-              </div>
+          <figure class="slide">
+            <div class="slide-photo" data-full="images/04_reunion.jpg">
+              <img src="images/04_reunion.jpg" alt="Reunion" loading="lazy">
             </div>
-            <div class="page right">
-              <div class="book-photo p2" data-full="images/06_flower.jpg">
-                <img src="images/06_flower.jpg" alt="A flower for you">
-              </div>
-            </div>
-            <div class="spine" aria-hidden="true"></div>
-            <div class="book-dots" aria-hidden="true">
-              <span class="book-dot a"></span><span class="book-dot b"></span><span class="book-dot c"></span><span class="book-dot d"></span>
-            </div>
-          </div>
-          <div class="book-caption">Chapter 3 — Love grows • A small flower, a big promise</div>
-        </article>
+            <figcaption class="slide-cap">Chapter 2 — We meet again</figcaption>
+          </figure>
 
+          <figure class="slide">
+            <div class="slide-photo" data-full="images/05_talking.jpg">
+              <img src="images/05_talking.jpg" alt="Getting closer" loading="lazy">
+            </div>
+            <figcaption class="slide-cap">Chapter 3 — Getting closer</figcaption>
+          </figure>
+
+          <figure class="slide">
+            <div class="slide-photo" data-full="images/06_flower.jpg">
+              <img src="images/06_flower.jpg" alt="A flower" loading="lazy">
+            </div>
+            <figcaption class="slide-cap">Chapter 3 — A small flower, a big promise</figcaption>
+          </figure>
+        </div>
+
+        <div class="dots" id="dots" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -766,10 +818,26 @@
 
           <div class="card">
             <p class="label">Map</p>
-            <div class="map" aria-label="Map placeholder">
-              <div class="map-pin" aria-hidden="true"></div>
+
+            <div class="map" aria-label="Map">
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps?q=Bangkok%20Thailand&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                style="border:0;width:100%;height:100%;position:absolute;inset:0;"
+                allowfullscreen>
+              </iframe>
+              <div class="map-pin" aria-hidden="true" style="display:none;"></div>
             </div>
-            <p class="hint">Replace this with an embedded Google Map iframe or a static map image.</p>
+            <div class="cta-row" style="margin-top:12px;">
+              <a class="btn primary" id="navBtn" href="https://www.google.com/maps/dir/?api=1&destination=Bangkok%20Thailand" target="_blank" rel="noopener">Navigate in Google Maps</a>
+              <a class="btn" href="#top">Back to Top</a>
+            </div>
+            <p class="hint">
+              เปลี่ยนสถานที่ได้โดยแก้ 2 จุดนี้ในโค้ด: <code>maps?q=...</code> และ <code>destination=...</code> (ใส่ชื่อสถานที่หรือพิกัดก็ได้)
+            </p>
+
           </div>
         </div>
       </div>
@@ -821,19 +889,21 @@
     const lbClose = document.getElementById('lbClose');
 
     function openLightbox(src){
+      try{ pauseSlider(); }catch(e){}
       lbImg.src = src;
       lightbox.classList.add('open');
       lightbox.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
     }
     function closeLightbox(){
+      try{ resumeSlider(); }catch(e){}
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden','true');
       lbImg.src = '';
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.book-photo').forEach(p=>{
+    document.querySelectorAll('.book-photo, .slide-photo').forEach(p=>{
       p.addEventListener('click', ()=>{
         const full = p.getAttribute('data-full') || p.querySelector('img')?.src;
         if(full) openLightbox(full);
@@ -843,6 +913,59 @@
     lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
     lbClose.addEventListener('click', closeLightbox);
     document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+});
+    gNext?.addEventListener('click', ()=>{
+      const cur = closestSpreadIndex();
+      scrollToSpread(cur + 1);
+      setAuto(false);
+    });
+    gToggle?.addEventListener('click', ()=> setAuto(!autoOn));
+
+    // Pause autoplay on manual interaction (touch/mouse wheel)
+    ['wheel','touchstart','pointerdown'].forEach(evt=>{
+      bookScroll?.addEventListener(evt, ()=>{ if(autoOn) setAuto(false); }, {passive:true});
+    });
+
+    // Default: autoplay off
+    setAuto(false);
+
+  
+    // ===================== Slider Autoplay =====================
+    const slidesEl = document.getElementById('slides');
+    const slideEls = Array.from(document.querySelectorAll('.slide'));
+    const dotsEl = document.getElementById('dots');
+
+    let idx = 0;
+    const INTERVAL_MS = 800;
+
+    // Build dots (no buttons)
+    if(dotsEl && slideEls.length){
+      dotsEl.innerHTML = slideEls.map((_,i)=>`<span class="dot${i===0?' active':''}"></span>`).join('');
+    }
+    function setDotActive(i){
+      const dots = dotsEl ? Array.from(dotsEl.querySelectorAll('.dot')) : [];
+      dots.forEach((d,di)=> d.classList.toggle('active', di===i));
+    }
+
+    
+    function goTo(i){
+      if(!slidesEl || !slideEls.length) return;
+      idx = (i + slideEls.length) % slideEls.length;
+      slidesEl.style.transform = `translateX(${-idx*(100/3)}%)`;
+      setDotActive(idx);
+    }
+%)`;
+      setDotActive(idx);
+    }
+
+    // Autoplay always on
+    let timer = setInterval(()=> goTo(idx + 1), INTERVAL_MS);
+
+    // Pause while lightbox open, resume when closed
+    function pauseSlider(){ if(timer){ clearInterval(timer); timer=null; } }
+    function resumeSlider(){ if(!timer){ timer=setInterval(()=> goTo(idx + 1), INTERVAL_MS); } }
+
+
   </script>
 </body>
 </html>
