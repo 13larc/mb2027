@@ -1,14 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>May & Boy — Wedding Invitation</title>
 
-  <!-- Fonts (serif for names + clean sans for body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -18,18 +17,18 @@
       --line:rgba(31,31,31,.10);
 
       /* palette */
-      --oros:#F7D8CF;         /* Soft Oros */
-      --peach:#F6D2B6;        /* soft peach */
-      --blush:#F5C7D3;        /* soft pink */
-      --latte:#D8B7A6;        /* light brown */
+      --oros:#F7D8CF;         
+      --peach:#F6D2B6;        
+      --blush:#F5C7D3;        
+      --latte:#D8B7A6;        
       --peach-2:#FBE8E2;
       --peach-ink:#B46E63;
 
       --shadow:0 18px 48px rgba(0,0,0,.06);
       --radius:22px;
 
-      --serif:"Cormorant Garamond", serif;
-      --sans:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif: "Cormorant Garamond", serif;
+      --sans: "Anuphan", sans-serif;
     }
 
     *{box-sizing:border-box}
@@ -45,90 +44,59 @@
       letter-spacing:.1px;
     }
 
-    a{color:inherit}
+    a{color:inherit; text-decoration:none;}
     .wrap{max-width:980px;margin:0 auto;padding:22px}
-    .topbar{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:10px 0 0;
-    }
+    
+    .topbar{ display:flex; justify-content:space-between; align-items:center; padding:10px 0 0; }
     .badge{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--peach-ink);
+      font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--peach-ink);
       background:linear-gradient(180deg, rgba(247,216,207,.55), rgba(247,216,207,.22));
-      border:1px solid rgba(180,110,99,.18);
-      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(180,110,99,.18); padding:8px 12px; border-radius:999px;
       backdrop-filter: blur(6px);
     }
-    .nav{
-      display:flex;gap:14px;flex-wrap:wrap;
-      font-size:13px;color:rgba(31,31,31,.72);
-    }
-    .nav a{ text-decoration:none; padding:8px 10px; border-radius:999px; }
+    .nav{ display:flex; gap:14px; flex-wrap:wrap; font-size:13px; color:rgba(31,31,31,.72); }
+    .nav a{ padding:8px 10px; border-radius:999px; }
     .nav a:hover{ background:rgba(247,216,207,.25); }
+
+    /* Updated Headers to Anuphan */
+    h1, h2 {
+      font-family: var(--sans) !important;
+      font-weight: 600;
+      margin: 0;
+    }
 
     /* Hero */
     .hero{
-      margin-top:18px;
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow: var(--shadow);
+      margin-top:18px; border-radius:var(--radius); overflow:hidden;
+      border:1px solid var(--line); box-shadow: var(--shadow);
       background:
         radial-gradient(700px 380px at 15% 0%, rgba(247,216,207,.55), transparent 60%),
         linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
     }
-    .hero-inner{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:26px;
-      padding:34px 34px 30px;
-      align-items:center;
+    .hero-inner{ display:grid; grid-template-columns: 1.2fr .8fr; gap:26px; padding:34px 34px 30px; align-items:center; }
+    .names{ font-size: clamp(40px, 5vw, 64px); letter-spacing:.02em; line-height:1.05; }
+    
+    /* Countdown BIG Style */
+    .countdown-box {
+      margin-top: 25px; padding: 20px; background: var(--peach-2);
+      border-radius: 18px; text-align: center; border: 1px solid var(--oros);
     }
-    .names{
-      font-family:var(--serif);
-      font-weight:600;
-      font-size: clamp(40px, 5vw, 64px);
-      letter-spacing:.02em;
-      margin:0;
-      line-height:1.05;
+    .timer-display {
+      font-size: 32px; font-weight: 600; letter-spacing: 2px; color: var(--peach-ink);
+      display: block; margin-bottom: 5px;
     }
-    .sub{
-      margin:14px 0 0;
-      color:rgba(31,31,31,.72);
-      font-size:15px;
-      line-height:1.7;
-      max-width:58ch;
-    }
+    .timer-label { font-size: 10px; text-transform: uppercase; letter-spacing: 4px; color: var(--muted); }
 
-    .hero-meta{
-      margin-top:18px;
-      display:flex;gap:10px;flex-wrap:wrap;
-    }
+    .hero-meta{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
     .pill{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      border-radius:999px;
-      padding:10px 12px;
-      font-size:13px;
-      color:rgba(31,31,31,.8);
-      display:flex;gap:8px;align-items:center;
+      border:1px solid var(--line); background: rgba(255,255,255,.75); border-radius:999px;
+      padding:10px 12px; font-size:13px; color:rgba(31,31,31,.8);
+      display:flex; gap:8px; align-items:center;
     }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background: var(--oros);
-      border:1px solid rgba(180,110,99,.25);
-    }
+    .dot{ width:8px; height:8px; border-radius:50%; background: var(--oros); border:1px solid rgba(180,110,99,.25); }
 
-    /* Dress code swatches (circles) */
     .swatches{ display:flex; gap:6px; align-items:center; }
-    .swatch{
-      width:12px; height:12px; border-radius:999px;
-      border:1px solid rgba(31,31,31,.10);
-      box-shadow: 0 10px 18px rgba(0,0,0,.06);
-      flex: 0 0 auto;
-    }
+    .swatch{ width:12px; height:12px; border-radius:999px; border:1px solid rgba(31,31,31,.10); flex: 0 0 auto; }
     .swatch.blush{ background: var(--blush); }
     .swatch.oros{ background: var(--oros); }
     .swatch.peach{ background: var(--peach); }
@@ -136,238 +104,65 @@
 
     .cta-row{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
     .btn{
-      appearance:none;border:1px solid var(--line);
-      padding:12px 14px;border-radius:999px;
-      background: rgba(255,255,255,.85);
-      color:rgba(31,31,31,.88);
-      font-size:14px;
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;gap:10px;align-items:center;
-      transition: transform .12s ease, background .12s ease;
+      appearance:none; border:1px solid var(--line); padding:12px 14px; border-radius:999px;
+      background: rgba(255,255,255,.85); color:rgba(31,31,31,.88); font-size:14px;
+      cursor:pointer; display:inline-flex; gap:10px; align-items:center; transition: transform .12s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(247,216,207,.30); }
     .btn.primary{
       background: linear-gradient(180deg, rgba(247,216,207,.9), rgba(247,216,207,.55));
-      border-color: rgba(180,110,99,.18);
-      color: rgba(88,40,34,.95);
+      border-color: rgba(180,110,99,.18); color: rgba(88,40,34,.95);
     }
 
-    .photo-card{
-      position:relative;
-      border-radius:20px;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(247,216,207,.35), rgba(255,255,255,.9)),
-        repeating-linear-gradient(0deg, rgba(31,31,31,.05), rgba(31,31,31,.05) 1px, transparent 1px, transparent 10px);
-      aspect-ratio: 4 / 5;
-      overflow:hidden;
-      display:flex;
-      align-items:flex-end;
-    }
-    .photo-card img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      opacity:.88;
-      filter: contrast(1.02) brightness(1.02);
-    }
-    .photo-label{
-      width:100%;
-      padding:12px 14px;
-      font-size:12px;
-      color:rgba(31,31,31,.70);
-      background: linear-gradient(180deg, transparent, rgba(255,255,255,.92));
-      border-top:1px solid rgba(31,31,31,.06);
-      position:relative;
-    }
+    .photo-card{ position:relative; border-radius:20px; border:1px solid var(--line); aspect-ratio: 4 / 5; overflow:hidden; }
+    .photo-card img{ width:100%; height:100%; object-fit:cover; }
 
     /* Section layout */
-    section{
-      margin-top:18px;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 10px 30px rgba(0,0,0,.04);
-      overflow:hidden;
-    }
+    section{ margin-top:18px; border-radius:var(--radius); border:1px solid var(--line); background: rgba(255,255,255,.72); overflow:hidden; }
     .section-inner{ padding:26px; position:relative; }
-    .kicker{
-      font-size:12px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--peach-ink);
-      margin:0 0 10px;
+    .kicker{ font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--peach-ink); margin:0 0 10px; }
+    h2{ font-size: clamp(24px, 3.4vw, 32px); margin:0 0 10px; }
+
+    /* Image Schedule Style */
+    .schedule-img-container {
+      width: 100%;
+      max-width: 600px; /* ปรับขนาดความกว้างตามต้องการ */
+      margin: 20px auto 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
-    h2{
-      font-family:var(--serif);
-      font-weight:600;
-      font-size: clamp(24px, 3.4vw, 32px);
-      margin:0 0 10px;
-      letter-spacing:.01em;
-    }
-    .lead{
-      margin:0;
-      color:rgba(31,31,31,.72);
-      line-height:1.8;
-      font-size:15px;
+    .schedule-img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-      margin-top:18px;
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius:18px;
-      background: rgba(255,255,255,.80);
-      padding:18px;
-    }
-    .label{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:rgba(31,31,31,.55);
-      margin:0 0 6px;
-    }
-    .value{
-      margin:0;
-      font-size:15px;
-      line-height:1.7;
-      color:rgba(31,31,31,.88);
-    }
-    .value strong{
-      font-family:var(--serif);
-      font-weight:600;
-      font-size:18px;
-    }
-
-    .hint{ font-size:12px; color:rgba(31,31,31,.58); line-height:1.6; margin:8px 0 0; }
-    .divider{ height:1px;background:var(--line); margin:18px 0 0; }
-
-    /* ===================== THUMB GALLERY (6) ===================== */
-    .thumb-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      padding:18px;
-    }
-    .thumb-photo{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(31,31,31,.12);
-      background:#fff;
-      cursor:pointer;
-      aspect-ratio:1/1;
-      box-shadow:0 8px 18px rgba(0,0,0,.08);
-    }
-    .thumb-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform .2s ease;
-      display:block;
-      transform:scale(1.02);
-    }
+    /* Gallery Grid */
+    .thumb-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; padding:18px; }
+    .thumb-photo{ border-radius:14px; overflow:hidden; border:1px solid rgba(31,31,31,.12); aspect-ratio:1/1; cursor:pointer; }
+    .thumb-photo img{ width:100%; height:100%; object-fit:cover; transition:transform .2s ease; }
     .thumb-photo:hover img{ transform:scale(1.08); }
 
-    /* Map */
-    .map{
-      border-radius:18px;
-      border:1px dashed rgba(31,31,31,.18);
-      background: linear-gradient(135deg, rgba(247,216,207,.28), rgba(255,255,255,.92));
-      aspect-ratio: 16 / 9;
-      position:relative;
-      overflow:hidden;
-    }
+    /* Venue & Map */
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-top:18px; }
+    .card{ border:1px solid var(--line); border-radius:18px; background: rgba(255,255,255,.80); padding:18px; }
+    .map{ border-radius:18px; aspect-ratio: 16 / 9; position:relative; overflow:hidden; border:1px dashed var(--line); }
 
-    /* ===================== GLASS LIGHTBOX + FADE ===================== */
+    /* Lightbox */
     .lightbox{
-      position:fixed; inset:0;
-      display:flex;
-      align-items:center; justify-content:center;
-      padding:18px;
-      background: rgba(15,15,15,.55);
-      z-index: 9999;
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+      padding:18px; background: rgba(15,15,15,.75); z-index: 9999;
+      opacity:0; visibility:hidden; transition: .2s ease;
+    }
+    .lightbox.open{ opacity:1; visibility:visible; }
+    .lb-img{ max-width:100%; max-height: 80vh; object-fit: contain; }
 
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-      transition: opacity .22s ease, visibility .22s ease;
-    }
-    .lightbox.open{
-      opacity:1;
-      visibility:visible;
-      pointer-events:auto;
-    }
+    footer{ text-align:center; padding:36px 8px; color:rgba(31,31,31,.55); font-size:13px; }
 
-    .lb-panel{
-      width: min(980px, 96vw);
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.10);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 30px 90px rgba(0,0,0,.35);
-      position:relative;
-
-      transform: translateY(10px) scale(.985);
-      opacity:0;
-      transition: transform .24s ease, opacity .24s ease;
-    }
-    .lightbox.open .lb-panel{
-      transform: translateY(0) scale(1);
-      opacity:1;
-    }
-
-    .lb-img{
-      width:100%;
-      max-height: 80vh;
-      object-fit: contain;
-      display:block;
-      background: rgba(255,255,255,.06);
-      opacity:0;
-      transition: opacity .22s ease;
-    }
-
-    .lb-bar{
-      display:flex; justify-content:space-between; align-items:center; gap:10px;
-      padding:12px 14px;
-      color: rgba(255,255,255,.90);
-      font-size:13px;
-    }
-    .lb-close{
-      appearance:none;
-      border:1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.12);
-      color: rgba(255,255,255,.92);
-      padding:10px 12px;border-radius:999px;
-      cursor:pointer;
-      font-weight:500;
-    }
-
-    footer{
-      text-align:center;
-      padding:26px 8px 36px;
-      color:rgba(31,31,31,.55);
-      font-size:13px;
-      line-height:1.8;
-    }
-
-    /* Responsive */
     @media (max-width: 860px){
       .hero-inner{ grid-template-columns: 1fr; }
-      .photo-card{ aspect-ratio: 16 / 10; }
-    }
-    @media (max-width: 720px){
-      .thumb-grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 620px){
-      .wrap{ padding:16px; }
-      .section-inner{ padding:20px; }
       .grid-2{ grid-template-columns: 1fr; }
+      .thumb-grid{ grid-template-columns: repeat(2, 1fr); }
       .nav{ display:none; }
     }
   </style>
@@ -377,250 +172,171 @@
   <div class="wrap">
     <div class="topbar">
       <div class="badge">Wedding Invitation</div>
-      <nav class="nav" aria-label="Section navigation">
-        <a href="#gallery">Gallery</a>
+      <nav class="nav">
+        <a href="#Our story">Our story</a>
         <a href="#welcome">Welcome</a>
         <a href="#details">Details</a>
+        <a href="#gallery">Gallery</a>
         <a href="#venue">Venue</a>
         <a href="#rsvp">RSVP</a>
       </nav>
     </div>
 
-    <!-- HERO -->
     <header class="hero" id="top">
       <div class="hero-inner">
         <div>
           <h1 class="names">May <span style="color:rgba(31,31,31,.55);font-weight:400;">&</span> Boy</h1>
-         <h2> <span style="color:rgba(31,31,31,.55);font-weight:400;"> Maybe It’s Boy</span> </h2>
+          <h2><span style="color:rgba(31,31,31,.55);font-weight:400;">Maybe It’s Boy</span></h2>
+          <p style="color:var(--muted); font-size:15px;">With hearts full of gratitude, we invite you to join us as we begin our next chapter.</p>
 
-         
-          <p class="sub">
-            With hearts full of gratitude, we invite you to join us as we begin our next chapter—surrounded by love, laughter, and the people who mean the most.
-          </p>
-
-          <div class="hero-meta" aria-label="Quick details">
-            <div class="pill"><span class="dot"></span> <span><strong>Date:</strong> 2027 • 10 • 23)</span></div>
-            <div class="pill"><span class="dot"></span> <span><strong>Time:</strong> 8:00-13:00</span></div>
-
-            <div class="pill">
-              <span class="dot"></span>
-              <span><strong>Dress Code:</strong> Soft Neutrals</span>
-              <span class="swatches" aria-label="Dress code colors">
-                <span class="swatch blush" title="Soft Pink"></span>
-                <span class="swatch oros" title="Oros"></span>
-                <span class="swatch peach" title="Peach"></span>
-                <span class="swatch latte" title="Light Brown"></span>
-              </span>
-            </div>
+          <div class="countdown-box">
+            <div class="timer-label">Days : Hours : Min : Sec</div>
+            <span id="timer" class="timer-display">00 : 00 : 00 : 00</span>
           </div>
 
           <div class="cta-row">
             <a class="btn primary" href="#rsvp">RSVP Now</a>
             <a class="btn" href="#venue">View Venue</a>
           </div>
-
-          <div class="divider"></div>
-         </div>
-
-        <div>
-          <div class="photo-card" role="img" aria-label="Couple photo">
-            <img src="images/00_wedding.jpg" alt="May & Boy photo">
-            <div class="photo-label">  to forever</div>
-          </div>
+        </div>
+        <div class="photo-card">
+          <img src="images/00_wedding.jpg" alt="May & Boy">
         </div>
       </div>
     </header>
 
-    <!-- GALLERY (6 thumbnails - tap to expand) -->
     <section id="Our story">
-      <div class="section-inner" style="padding-bottom:10px;">
+      <div class="section-inner">
         <p class="kicker">Our story</p>
-        <h2>Our story</h2> 
-      </div>
-
-      <div class="thumb-grid" aria-label="Photo gallery">
-        <div class="thumb-photo" data-full="images/01_childhood.jpg"><img src="images/01_childhood.jpg" alt="Childhood" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/02_school_walk.jpg"><img src="images/02_school_walk.jpg" alt="School" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/03_time_pass.jpg"><img src="images/03_time_pass.jpg" alt="Time passes" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/04_reunion.jpg"><img src="images/04_reunion.jpg" alt="Reunion" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/05_talking.jpg"><img src="images/05_talking.jpg" alt="Talking" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/06_flower.jpg"><img src="images/06_flower.jpg" alt="Flower" loading="lazy"></div>
-      </div>
-    </section>
-
-    <!-- GALLERY (6 thumbnails - tap to expand) -->
-    <section id="gallery">
-      <div class="section-inner" style="padding-bottom:10px;">
-        <p class="kicker">gallery</p>
         <h2>Our story</h2>
-        <p class="lead">Tap a photo to view in full size.</p>
       </div>
-
-      <div class="thumb-grid" aria-label="Photo gallery">
-        <div class="thumb-photo" data-full="images/01_w1.jpg"><img src="images/01_w1.jpg" alt="Childhood" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/02_w2.jpg"><img src="images/02_w2.jpg" alt="School" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/03_w3.jpg"><img src="images/03_w3.jpg" alt="Time passes" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/04_w4.jpg"><img src="images/04_w4.jpg" alt="Reunion" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/05_w5.jpg"><img src="images/05_w5.jpg" alt="Talking" loading="lazy"></div>
-        <div class="thumb-photo" data-full="images/06_w6.jpg"><img src="images/06_w6.jpg" alt="Flower" loading="lazy"></div>
+      <div class="thumb-grid">
+        <div class="thumb-photo"><img src="images/01_childhood.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/02_school_walk.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/03_time_pass.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/04_reunion.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/05_talking.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/06_flower.jpg" onclick="openLB(this.src)"></div>
       </div>
     </section>
 
-
-
-    <!-- WELCOME -->
     <section id="welcome">
       <div class="section-inner">
         <p class="kicker">Welcome</p>
         <h2>A warm invitation, from us to you</h2>
-        <p class="lead">
-          We’re grateful for every moment, every lesson, and every person who has walked alongside us.
-          Please join us as we celebrate our marriage and share an evening of love, joy, and togetherness.
-        </p>
+        <p style="line-height:1.8; color:var(--muted);">ยินดีต้อนรับทุกท่านร่วมเป็นสักขีพยานในวันสำคัญของเรา เราซาบซึ้งในทุกช่วงเวลาและขอบคุณทุกท่านที่ร่วมเดินทางมากับเราเสมอมา</p>
+           
+        <div class="hero-meta">
+            <div class="pill"><span class="dot"></span> <strong>Date:</strong> 23 ต.ค. 2027</div>
+            <div class="pill">
+              <span class="dot"></span>
+              <strong>Dress Code:</strong> Soft Neutrals
+              <span class="swatches">
+                <span class="swatch blush"></span>
+                <span class="swatch oros"></span>
+                <span class="swatch peach"></span>
+                <span class="swatch latte"></span>
+              </span>
+            </div>
+        </div>
       </div>
     </section>
 
-    <!-- DETAILS -->
     <section id="details">
       <div class="section-inner">
-        <p class="kicker">Wedding Details</p>
-        <h2>Date & Time</h2>
-
-        <div class="grid-2">
-          <div class="card">
-            <p class="label">Ceremony</p>
-            <p class="value"><strong>2027</strong><br/>18:00 (Please arrive 30 minutes early)</p>
-          </div>
-          <div class="card">
-            <p class="label">Reception</p>
-            <p class="value"><strong>Immediately after</strong><br/>Dinner • Toasts • Warm moments</p>
-          </div>
+        <p class="kicker">Wedding Details</p> 
+        <div class="schedule-img-container">
+          <img src="images/wedding_timeline.jpg" alt="Wedding Timeline Schedule">
         </div>
-
-        <p class="hint">Tip: Replace “2027” and time with your exact date/time once confirmed.</p>
       </div>
     </section>
 
-    <!-- VENUE -->
+    <section id="gallery">
+      <div class="section-inner">
+        <p class="kicker">Gallery</p>
+        <h2>Our story</h2>
+      </div>
+      <div class="thumb-grid">
+        <div class="thumb-photo"><img src="images/01_w1.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/02_w2.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/03_w3.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/04_w4.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/05_w5.jpg" onclick="openLB(this.src)"></div>
+        <div class="thumb-photo"><img src="images/06_w6.jpg" onclick="openLB(this.src)"></div>
+      </div>
+    </section>
+
     <section id="venue">
       <div class="section-inner">
         <p class="kicker">Venue</p>
         <h2>Location</h2>
-
         <div class="grid-2">
           <div class="card">
-            <p class="label">Venue Name</p>
-            <p class="value"><strong>Your Venue</strong><br/>Full address line 1<br/>City, Country</p>
-            <p class="hint">Add parking info, BTS/MRT notes, or a short landmark description here.</p>
+            <p><strong>Your Venue Name</strong><br/>Full Address Here<br/>Bangkok, Thailand</p>
+            <a class="btn primary" href="#" style="margin-top:10px;">Open in Google Maps</a>
           </div>
-
-          <div class="card">
-            <p class="label">Map</p>
-            <div class="map" aria-label="Map">
-              <!-- ✅ เปลี่ยน q=... เป็นชื่อสถานที่/ที่อยู่ หรือพิกัด -->
-              <iframe
-                title="Google Map"
-                src="https://www.google.com/maps?q=Bangkok%20Thailand&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                style="border:0;width:100%;height:100%;position:absolute;inset:0;"
-                allowfullscreen>
-              </iframe>
-            </div>
-
-            <div class="cta-row" style="margin-top:12px;">
-              <!-- ✅ เปลี่ยน destination=... ให้ตรงกับสถานที่ -->
-              <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=Bangkok%20Thailand" target="_blank" rel="noopener">Navigate in Google Maps</a>
-              <a class="btn" href="#top">Back to Top</a>
-            </div>
-
-            <p class="hint">
-              เปลี่ยนสถานที่ได้โดยแก้ 2 จุดนี้: <code>maps?q=...</code> และ <code>destination=...</code>
-            </p>
+          <div class="map">
+            <iframe src="https://www.google.com/maps?q=Bangkok%20Thailand&output=embed" style="border:0;width:100%;height:100%;" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RSVP -->
     <section id="rsvp">
-      <div class="section-inner">
-        <p class="kicker">Digital RSVP</p>
-        <h2>Kindly respond</h2>
-        <p class="lead">
-          Your presence means the world to us. Please let us know if you can join, so we can welcome you warmly.
-        </p>
-
-        <p class="hint">You can replace this section with a Google Form link if needed.</p>
-
-        <div class="cta-row" style="margin-top:12px;">
-          <a class="btn primary" href="#" onclick="alert('Put your Google Form link here'); return false;">Open Google Form</a>
-          <a class="btn" href="#top">Back to Top</a>
+      <div class="section-inner" style="text-align:center;">
+        <p class="kicker">RSVP</p>
+       <h2 style="color:var(--muted)">แบบตอบรับเข้าร่วมงาน</h2> 
+        <p style="color:var(--muted)">โปรดลงทะเบียนเพื่อให้เราได้เตรียมการต้อนรับคุณอย่างดีที่สุด</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="btn primary" href="#" onclick="alert('Link to Google Form')">Open Google Form</a>
         </div>
       </div>
     </section>
 
     <footer>
-      <div style="font-family:var(--serif);font-size:18px;color:rgba(31,31,31,.72);">
-        With love, May & Boy
-      </div>
-      <div style="margin-top:8px;">
-        A soft, warm celebration in 2027 • Minimal • Airy • Heartfelt
-      </div>
+      <div style="font-family:var(--serif); font-size:18px;">With love, May & Boy</div>
+      <div style="margin-top:8px;">2027 • Minimal • Airy • Heartfelt</div>
     </footer>
   </div>
 
-  <!-- Glass Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lb-panel" role="dialog" aria-label="Image lightbox">
-      <img class="lb-img" id="lbImg" alt="Expanded photo" />
-      <div class="lb-bar">
-        <span>Tap outside or press ESC to close</span>
-        <button class="lb-close" id="lbClose" type="button">Close</button>
-      </div>
-    </div>
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+    <img class="lb-img" id="lbImg">
   </div>
 
   <script>
-    // Lightbox (fade + image fade-in)
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbClose = document.getElementById('lbClose');
+    // Countdown Timer (BIG Version)
+    const weddingDate = new Date(2027, 9, 23, 8, 39, 0).getTime();
+    
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
 
-    function openLightbox(src){
-      // reset image opacity for fade-in
-      lbImg.style.opacity = '0';
-      lbImg.onload = () => {
-        // small delay to make fade visible even on cached images
-        requestAnimationFrame(() => lbImg.style.opacity = '1');
-      };
-      lbImg.src = src;
+      if (diff < 0) {
+        document.getElementById("timer").innerHTML = "HAPPY WEDDING DAY 🤍";
+        return;
+      }
 
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const displayD = d.toString().padStart(2, '0');
+      const displayH = h.toString().padStart(2, '0');
+      const displayM = m.toString().padStart(2, '0');
+      const displayS = s.toString().padStart(2, '0');
+
+      document.getElementById("timer").innerHTML = `${displayD} : ${displayH} : ${displayM} : ${displayS}`;
     }
 
-    function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden','true');
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
-      // allow fade-out before clearing src
-      setTimeout(() => { lbImg.src = ''; lbImg.style.opacity = '0'; }, 120);
-      document.body.style.overflow = '';
+    // Lightbox Logic
+    function openLB(src) {
+      document.getElementById('lbImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
     }
-
-    // ✅ Bind click for thumbs (and keep compatibility if you later add other classes)
-    document.querySelectorAll('.thumb-photo, .book-photo, .slide-photo').forEach(p=>{
-      p.addEventListener('click', ()=>{
-        const full = p.getAttribute('data-full') || p.querySelector('img')?.src;
-        if(full) openLightbox(full);
-      });
-    });
-
-    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
-    lbClose.addEventListener('click', closeLightbox);
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
   </script>
 </body>
 </html>
