@@ -112,6 +112,9 @@
 
     .photo-card{ position:relative; border-radius:20px; border:1px solid var(--line); aspect-ratio: 4 / 5; overflow:hidden; }
     .photo-card img{ width:100%; height:100%; object-fit:cover; }
+        .photo-qr{ position:relative; border-radius:20px; border:1px solid var(--line);  overflow:hidden; }
+
+    .photo-qr img{ width:50%; height:50%; object-fit:cover; }
 
     section{ margin-top:18px; border-radius:var(--radius); border:1px solid var(--line); background: rgba(255,255,255,.72); overflow:hidden; }
     .section-inner{ padding:26px; position:relative; }
@@ -183,20 +186,16 @@
     <header class="hero" id="top">
       <div class="hero-inner">
         <div>
-          <h1 class="names"><span style="color: rgb(189 78 35 / 55%);font-weight:400;">May</span> <span style="color:rgba(31,31,31,.55);font-weight:400;">&</span> <span style="color: rgb(189 78 35 / 55%);font-weight:400;">BOY</span></h1>
+          <h1 class="names"><span style="color: rgb(189 78 35 / 55%);font-weight:400;">May</span>   <span style="color: rgb(189 78 35 / 55%);font-weight:400;">BOY</span></h1>
+           <h2><span style="color:rgba(255, 189, 156, 0.55);font-weight:400;">Thitima Artid</span></h2> 
           <h2><span style="color:rgba(31,31,31,.55);font-weight:400;">Maybe It’s Boy</span></h2>
           <p style="color:var(--muted); font-size:15px;">With hearts full of gratitude, we invite you to join us as we begin our next chapter.</p>
-            <div class="pill"><span class="dot"></span> <strong>Date:</strong> 23 ต.ค. 2027</div>
+            <div class="countdown-box"><span class="dot"></span> <strong>Save The Date:</strong> 23 OCTOBER 2027</div>
 
           <div class="countdown-box">
             <div class="timer-label">Days : Hours : Min : Sec</div>
             <span id="timer" class="timer-display">00 : 00 : 00 : 00</span>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn primary" href="#rsvp">RSVP Now</a>
-            <a class="btn" href="#venue">View Venue</a>
-          </div>
+          </div> 
         </div>
         <div class="photo-card">
           <img src="images/00_wedding.jpg" alt="May & Boy">
@@ -272,16 +271,29 @@
     </div>
   </section>
 
-    <section id="rsvp">
-      <div class="section-inner" style="text-align:center;">
-        <p class="kicker">RSVP</p>
-       <h2 style="color:var(--muted)">แบบตอบรับเข้าร่วมงาน</h2> 
-        <p style="color:var(--muted)">โปรดลงทะเบียนเพื่อให้เราได้เตรียมการต้อนรับคุณอย่างดีที่สุด</p>
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn primary" href="https://forms.gle/KNB37nS9eDWTXC8i8" onclick="alert('ยืนยันมาร่วมงาน May & Boy')">Open Google Form</a>
-        </div>
+   <section id="rsvp">
+  <div class="section-inner" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 20px;">
+    
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+      <p class="kicker">RSVP</p>
+      <h2 style="color:var(--muted)">แบบตอบรับเข้าร่วมงาน</h2>
+      <p style="color:var(--muted)">โปรดลงทะเบียนเพื่อให้เราได้เตรียมการต้อนรับคุณอย่างดีที่สุด</p>
+      <div class="cta-row" style="justify-content:center; margin-top: 20px;">
+        <a class="btn primary" href="https://forms.gle/KNB37nS9eDWTXC8i8" onclick="alert('ยืนยันมาร่วมงาน May & Boy')">Open Google Form</a>
       </div>
-    </section>
+    </div>
+
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+      <p class="kicker">GIFT</p>
+      <h2 style="color:var(--muted)">เรียนเชิญทุกท่าน</h2>
+      <p style="color:var(--muted)">ที่ประสงค์จะร่วมแสดงความยินดี ผ่านช่องทางการโอนเงิน <br>สามารถใช้ QR Code ที่แสดงอยู่ด้านล่างนี้ได้เลยค่ะ/ครับ</p>
+          <div class="photo-qr">
+          <img src="images/qrcode.jpg" alt="May & Boy">
+        </div>
+    </div>
+
+  </div>
+</section>
 
    <section id="Our story">
       <div class="section-inner">
